@@ -1,0 +1,14 @@
+# System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivní fotky — nepotřebné pro nasazení
+assets/img-original/
+assets/img/IMG_*.webp

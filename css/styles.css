@@ -1,0 +1,1611 @@
+/* ============================================================
+   Makeup Martina — styles.css
+   Styl: teplý luxusní minimalizmus
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap');
+
+
+/* ============================================================
+   1. Reset & base
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--ink-mid);
+  background-color: var(--pink-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+
+/* ============================================================
+   2. CSS proměnné (:root)
+   ============================================================ */
+
+:root {
+  /* Pozadí */
+  --pink-bg:     #faf5f5;   /* hlavní pozadí stránek — pudrová růžová */
+  --white:       #ffffff;   /* karty, nav, hero, sekce jako kontrast */
+  --pink-pale:   #f5eeee;   /* jemné detaily, ikonky, placeholder */
+
+  /* Aliasy (interní) */
+  --off-white:   #faf5f5;   /* = pink-bg */
+  --light-gray:  #f5eeee;   /* = pink-pale */
+
+  /* Pudrová — bordery a dekorativní prvky */
+  --pink:        #e8d5d5;
+  --pink-dark:   #d4b8b8;
+
+  /* Zlatá — CTA, ceny, ikonky, eyebrow */
+  --gold:        #c4a35a;
+  --gold-dark:   #a8863d;
+  --gold-pale:   #f5ecd8;
+
+  /* Text */
+  --ink:         #2a2a2a;
+  --ink-mid:     #5a5a5a;
+  --ink-soft:    #9a9a9a;
+
+  /* Bordery */
+  --border:      rgba(196, 163, 90, .15);
+  --border-pink: rgba(212, 184, 184, .30);
+
+  /* Fonty */
+  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-sans:   'Jost', sans-serif;
+
+  /* Border-radius */
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-full: 999px;
+
+  /* Spacing */
+  --max-width:   1160px;
+  --section-py:  100px;
+  --section-px:  60px;
+  --nav-height:  72px;
+}
+
+
+/* ============================================================
+   3. Navigace
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  transition: background .3s, border-color .3s, box-shadow .3s;
+}
+
+.nav.scrolled {
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(26, 20, 16, .06);
+}
+
+.nav__inner {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--section-px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Logo */
+.nav__logo {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: .02em;
+  color: var(--ink);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav__logo span:first-child {
+  font-weight: 300;
+  letter-spacing: .12em;
+}
+
+.nav__logo span:last-child {
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+/* Linky */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav__link {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-mid);
+  transition: color .25s;
+  white-space: nowrap;
+}
+
+.nav__link:hover,
+.nav__link--active {
+  color: var(--gold);
+}
+
+/* CTA */
+.nav__cta {
+  flex-shrink: 0;
+}
+
+/* Hamburger */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform .3s, opacity .3s;
+}
+
+.nav__hamburger.is-open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav__hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__hamburger.is-open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Mobilní menu overlay */
+.nav__mobile {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--white);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  z-index: 999;
+}
+
+.nav__mobile.is-open {
+  display: flex;
+}
+
+.nav__mobile .nav__link {
+  font-size: 1.1rem;
+}
+
+.nav__mobile .nav__cta {
+  margin-top: 8px;
+}
+
+
+/* ============================================================
+   4. Hero — homepage
+   ============================================================ */
+
+.hero {
+  min-height: 100svh;
+  padding-top: var(--nav-height);
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__inner {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px var(--section-px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero__perex {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  max-width: 480px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.hero__image {
+  position: relative;
+}
+
+.hero__image img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.hero__image-placeholder {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--light-gray);
+  border-radius: var(--radius-lg);
+}
+
+
+/* ============================================================
+   5. Hero — vnitřní stránky (.hero--inner)
+   ============================================================ */
+
+.hero--inner {
+  min-height: 50vh;
+  padding-top: calc(var(--nav-height) + 40px);
+  padding-bottom: 60px;
+}
+
+.hero--inner .hero__inner {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.hero--inner .hero__title {
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+}
+
+.hero--inner .hero__perex {
+  margin: 0 auto;
+}
+
+.hero--inner .hero__actions {
+  justify-content: center;
+}
+
+
+/* ============================================================
+   6. Sekce utilities (section-label, nadpisy, spacing)
+   ============================================================ */
+
+.section {
+  padding: var(--section-py) var(--section-px);
+}
+
+/* Základní varianty pozadí */
+.section--white       { background: var(--white); }
+.section--off-white   { background: var(--off-white); }
+.section--light-gray  { background: var(--light-gray); }
+.section--pink-pale   { background: var(--pink-pale); }
+
+/* Aliasy — odpovídají střídání sekcí per DESIGN.md */
+.section--cream       { background: var(--pink-bg); }
+.section--cream-light { background: var(--white); }
+.section--cream-dark  { background: var(--pink-bg); }
+
+.section__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3.4rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.15;
+}
+
+.section__perex {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+
+/* ============================================================
+   7. Karty služeb
+   ============================================================ */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 32px;
+  box-shadow: 0 2px 16px rgba(26, 20, 16, .06);
+  transition: box-shadow .3s ease, transform .3s ease, background .3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service-card:hover {
+  background: var(--pink-pale);
+  box-shadow: 0 8px 32px rgba(26, 20, 16, .12);
+  transform: translateY(-4px);
+}
+
+.service-card--featured {
+  background: var(--white);
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 40px rgba(196, 163, 90, .2);
+  position: relative;
+}
+
+.service-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--pink-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-card__icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.service-card__desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.service-card__price {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.service-card__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.service-card__checklist li {
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.service-card__checklist li::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23c4a35a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8l3.5 3.5L13 4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.service-card__cta {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+
+/* ============================================================
+   8. Ceník karty (s .price-card--featured)
+   ============================================================ */
+
+/* Pomocná varianta pro 2-sloupcový grid (4 karty v 2×2 layoutu) */
+.services-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 640px) {
+  .services-grid--2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.pricing-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.price-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  box-shadow: 0 2px 16px rgba(26, 20, 16, .06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  transition: box-shadow .3s ease, transform .3s ease, background .3s ease;
+}
+
+.price-card:hover {
+  background: var(--pink-pale);
+  box-shadow: 0 8px 32px rgba(26, 20, 16, .12);
+  transform: translateY(-4px);
+}
+
+.price-card--featured {
+  background: var(--white);
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 40px rgba(196, 163, 90, .2);
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.price-card--featured:hover {
+  transform: scale(1.02) translateY(-4px);
+}
+
+.price-card__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.price-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.price-card__duration {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: -8px;
+}
+
+.price-card__price {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.price-card__price-note {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: -8px;
+}
+
+.price-card__desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.price-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.price-card__features li {
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.price-card__features li::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23c4a35a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8l3.5 3.5L13 4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.price-card__cta {
+  margin-top: 8px;
+}
+
+/* Tabulkový ceník (jednodušší seznam) */
+.price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.price-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  gap: 20px;
+}
+
+.price-list__item:last-child {
+  border-bottom: none;
+}
+
+.price-list__item:nth-child(even) {
+  background: var(--off-white);
+}
+
+.price-list__name {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+}
+
+.price-list__price {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.price-note {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   9. Proces — kroky s čísly
+   ============================================================ */
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  counter-reset: steps;
+}
+
+.process-step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.process-step__num {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  opacity: .4;
+}
+
+.process-step__title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.process-step__desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+
+/* ============================================================
+   10. FAQ accordion
+   ============================================================ */
+
+.faq {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq__item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.faq__question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: color .25s;
+}
+
+.faq__question:hover {
+  color: var(--gold);
+}
+
+.faq__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  fill: none;
+  transition: transform .3s ease;
+}
+
+.faq__item.is-open .faq__icon {
+  transform: rotate(45deg);
+}
+
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s ease;
+}
+
+.faq__item.is-open .faq__answer {
+  max-height: 400px;
+  padding-bottom: 24px;
+}
+
+.faq__answer p {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.8;
+}
+
+
+/* ============================================================
+   11. Galerie / portfolio grid
+   ============================================================ */
+
+.portfolio-grid {
+  columns: 3;
+  column-gap: 16px;
+}
+
+.portfolio-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.portfolio-item img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+  transition: transform .4s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.04);
+}
+
+.portfolio-item--wide {
+  break-inside: avoid;
+}
+
+/* Filtry kategorií */
+.portfolio-filter {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.portfolio-filter__btn {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 9px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background .25s, color .25s, border-color .25s;
+  background: transparent;
+}
+
+.portfolio-filter__btn:hover,
+.portfolio-filter__btn.is-active {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+
+/* Placeholder galerie (před nahráním fotek) */
+.gallery-placeholder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gallery-placeholder__item {
+  background: var(--light-gray);
+  border-radius: var(--radius-md);
+  aspect-ratio: 3/4;
+}
+
+
+/* ============================================================
+   12. Reference / recenze
+   ============================================================ */
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-card__stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.review-card__text {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  font-style: italic;
+  flex: 1;
+}
+
+.review-card__text::before {
+  content: '"';
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--gold);
+  line-height: 0;
+  vertical-align: -0.4em;
+  margin-right: 2px;
+  opacity: .5;
+}
+
+.review-card__author {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: 8px;
+}
+
+
+/* ============================================================
+   13. CTA sekce
+   ============================================================ */
+
+.cta-section {
+  background: var(--ink);
+  padding: 80px var(--section-px);
+  text-align: center;
+}
+
+.cta-section__inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta-section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.cta-section__text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, .65);
+  line-height: 1.8;
+}
+
+.cta-section .btn--primary {
+  font-size: 0.85rem;
+  padding: 16px 40px;
+}
+
+.cta-phone {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: .02em;
+}
+
+
+/* ============================================================
+   14. Kontakt & mapa
+   ============================================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact-item__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--pink-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item__icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-item__label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.contact-item__value {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+
+.contact-item__value a:hover {
+  color: var(--gold);
+}
+
+.map-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+
+/* ============================================================
+   15. Footer
+   ============================================================ */
+
+.footer {
+  background: var(--ink);
+  color: rgba(255, 255, 255, .5);
+  padding: 60px var(--section-px) 40px;
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.footer__logo {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.footer__logo span:first-child {
+  font-weight: 300;
+  letter-spacing: .12em;
+}
+
+.footer__logo span:last-child {
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+.footer__address {
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.footer__address a {
+  color: rgba(255, 255, 255, .5);
+  transition: color .25s;
+}
+
+.footer__address a:hover {
+  color: var(--gold);
+}
+
+.footer__nav-title,
+.footer__contact-title {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.footer__nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__nav-links a {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, .5);
+  transition: color .25s;
+}
+
+.footer__nav-links a:hover {
+  color: var(--gold);
+}
+
+.footer__contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__contact-links a {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, .5);
+  transition: color .25s;
+}
+
+.footer__contact-links a:hover {
+  color: var(--gold);
+}
+
+.footer__bottom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.75rem;
+}
+
+.footer__copy {
+  color: rgba(255, 255, 255, .3);
+}
+
+
+/* ============================================================
+   16. Tlačítka (.btn--primary, .btn--outline)
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  padding: 13px 32px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background .3s, border-color .3s, color .3s, transform .2s;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn:active {
+  transform: scale(.98);
+}
+
+/* Primární — zlaté, pill tvar */
+.btn--primary {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+
+.btn--primary:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+}
+
+/* Sekundární — outline, pill tvar */
+.btn--outline {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.btn--outline:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+/* Světlý (na tmavém pozadí) */
+.btn--outline-light {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, .4);
+}
+
+.btn--outline-light:hover {
+  background: var(--white);
+  color: var(--ink);
+  border-color: var(--white);
+}
+
+
+/* ============================================================
+   17. Animace & utility (.reveal, fadeUp)
+   ============================================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: .15s; }
+.reveal-delay-2 { transition-delay: .3s; }
+.reveal-delay-3 { transition-delay: .45s; }
+
+/* Hero vstup animace */
+.hero__content > * {
+  animation: fadeUp .8s ease both;
+}
+
+.hero__content > *:nth-child(1) { animation-delay: .1s; }
+.hero__content > *:nth-child(2) { animation-delay: .25s; }
+.hero__content > *:nth-child(3) { animation-delay: .4s; }
+.hero__content > *:nth-child(4) { animation-delay: .55s; }
+
+/* Utilita */
+.text-center { text-align: center; }
+.text-gold    { color: var(--gold); }
+.mt-8         { margin-top: 8px; }
+.mt-16        { margin-top: 16px; }
+.mt-24        { margin-top: 24px; }
+.mt-40        { margin-top: 40px; }
+
+/* Divider */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 20px auto;
+  opacity: .5;
+}
+
+
+/* ============================================================
+   18. Responsive — tablet (max-width: 1024px)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  :root {
+    --section-px: 32px;
+    --section-py: 80px;
+  }
+
+  /* Nav */
+  .nav__links {
+    gap: 20px;
+  }
+
+  /* Hero */
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    padding: 60px var(--section-px);
+  }
+
+  .hero__perex {
+    margin: 0 auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__image {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Gridy 3 → 2 sloupce */
+  .services-grid,
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Portfolio */
+  .portfolio-grid {
+    columns: 2;
+  }
+
+  .gallery-placeholder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Kontakt */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Footer */
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  /* Price card featured */
+  .price-card--featured {
+    transform: scale(1);
+  }
+
+  .price-card--featured:hover {
+    transform: translateY(-4px);
+  }
+}
+
+
+/* ============================================================
+   19. Produkty
+   ============================================================ */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border-pink);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(26, 20, 16, .10);
+}
+
+.product-card__image {
+  aspect-ratio: 4 / 3;
+  background: var(--pink-pale);
+  overflow: hidden;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card__body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.product-card__brand {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.product-card__name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.product-card__desc {
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  flex: 1;
+}
+
+.product-card__salon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--ink-mid);
+  margin-top: 4px;
+}
+
+.product-card__salon::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   20. Responsive — mobil (max-width: 640px)
+   ============================================================ */
+
+@media (max-width: 640px) {
+  :root {
+    --section-px: 24px;
+    --section-py: 60px;
+    --nav-height: 64px;
+  }
+
+  /* Nav — hamburger */
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: clamp(2.4rem, 10vw, 3.2rem);
+  }
+
+  .hero__image {
+    max-width: 100%;
+  }
+
+  /* Gridy 1 sloupec */
+  .services-grid,
+  .reviews-grid,
+  .pricing-grid,
+  .pricing-grid--4,
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  /* Portfolio masonry → 1 sloupec */
+  .portfolio-grid {
+    columns: 1;
+  }
+
+  .gallery-placeholder {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sekce */
+  .section__header {
+    margin-bottom: 40px;
+  }
+
+  /* Footer */
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 60px var(--section-px);
+  }
+
+  .cta-phone {
+    font-size: 1.6rem;
+  }
+
+  /* Tlačítka na celou šířku na nejmenších zařízeních */
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__actions .btn {
+    justify-content: center;
+  }
+
+  /* Reviews — horizontální scroll */
+  .reviews-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .review-card {
+    min-width: 280px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  /* Produkty — 2-sloupcový grid */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
