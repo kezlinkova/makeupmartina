@@ -130,8 +130,11 @@
         <!-- Makeup & Hair — featured -->
         <div class="service-card service-card--featured reveal">
           <div class="service-card__icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L11 6.67l-2.06-2.06a5.5 5.5 0 00-7.78 7.78l2.06 2.06L11 22l7.78-7.78 2.06-2.06a5.5 5.5 0 000-7.78z"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <!-- rtěnka: tuba, bullet s diagonálním řezem, linie lesku -->
+              <rect x="8" y="16" width="8" height="6" rx="1.5"/>
+              <path d="M8 16V9.5L16 6.5V16z"/>
+              <line x1="11" y1="11.5" x2="11" y2="15.5"/>
             </svg>
           </div>
           <h3 class="service-card__title">Makeup &amp; Hair</h3>
@@ -144,8 +147,11 @@
         <!-- Kosmetika & Obočí -->
         <div class="service-card reveal reveal-delay-1">
           <div class="service-card__icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <!-- oko + obočí -->
+              <path d="M6 9.5Q12 5.5 18 9.5"/>
+              <path d="M5 14Q12 19.5 19 14Q12 8.5 5 14z"/>
+              <circle cx="12" cy="14" r="2.5"/>
             </svg>
           </div>
           <h3 class="service-card__title">Kosmetika &amp; Obočí</h3>
@@ -158,9 +164,12 @@
         <!-- Kurz líčení -->
         <div class="service-card reveal reveal-delay-2">
           <div class="service-card__icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 20h9"/>
-              <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <!-- ruční zrcátko — rám + sklo + rukojeť -->
+              <ellipse cx="12" cy="9" rx="6.5" ry="7.5"/>
+              <ellipse cx="12" cy="9" rx="4" ry="5"/>
+              <line x1="12" y1="16.5" x2="12" y2="21"/>
+              <line x1="9.5" y1="21" x2="14.5" y2="21"/>
             </svg>
           </div>
           <h3 class="service-card__title">Kurz líčení</h3>
@@ -215,12 +224,12 @@
         <div>
           <p class="section-label reveal">O mně</p>
           <h2 class="section__title reveal reveal-delay-1" style="text-align:left; margin-bottom:24px;">
-            14 let v oboru, srdce v práci
+            Od koníčku k vlastnímu salonu
           </h2>
-          <p class="reveal reveal-delay-2" style="font-size:.9rem; color:var(--ink-mid); line-height:1.8; margin-bottom:32px;">
-            Jsem normální pohodová holka a maminka dvou dětí, která se v oboru
-            našla před 14 lety. Od konzultantky přes vizážistku na Českém Lvu
-            až po vlastní salon ve Slavkově u Brna.
+          <p class="reveal reveal-delay-2" style="font-size:1rem; color:var(--ink-mid); line-height:1.8; margin-bottom:32px;">
+            Jsem normální pohodová holka a maminka dvou dětí. Líčím od 12 let —
+            ze začátku jen kamarádky jako koníček, postupně konzultantka, vizážistka
+            na Českém Lvu, a dnes vlastní salon ve Slavkově u Brna.
           </p>
           <a href="o-mne.html" class="btn btn--outline reveal reveal-delay-3">Více o mně</a>
         </div>
@@ -278,7 +287,7 @@
           <h2 class="section__title reveal reveal-delay-1" style="text-align:left; margin-bottom:20px;">
             Darujte zážitek, na který se nezapomíná
           </h2>
-          <p class="reveal reveal-delay-2" style="font-size:.9rem; color:var(--ink-mid); line-height:1.8; margin-bottom:32px;">
+          <p class="reveal reveal-delay-2" style="font-size:1rem; color:var(--ink-mid); line-height:1.8; margin-bottom:32px;">
             Nevíte, co darovat? Dárkový poukaz na kosmetické ošetření pleti
             potěší každou ženu. Zavolejte a domluvíme vše potřebné.
           </p>
@@ -338,7 +347,7 @@
   </div>
   <div class="footer__bottom">
     <p class="footer__copy">© 2026 Martina Třísková. Všechna práva vyhrazena.</p>
-    <a href="o-mne.html#kontakt" style="font-size:.75rem; color:rgba(255,255,255,.3); transition:color .25s;"
+    <a href="o-mne.html#kontakt" style="font-size:1rem; color:rgba(255,255,255,.3); transition:color .25s;"
        onmouseover="this.style.color='#c4a35a'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Kontakt</a>
   </div>
 </footer>
