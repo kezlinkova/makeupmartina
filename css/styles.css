@@ -228,7 +228,7 @@ h1, h2, h3, h4 {
 
 /* Mobilní menu overlay */
 .nav__mobile {
-  display: none;
+  display: flex;
   position: fixed;
   top: var(--nav-height);
   left: 0;
@@ -238,20 +238,76 @@ h1, h2, h3, h4 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 48px;
   z-index: 999;
+  /* Výchozí stav — skryto */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-16px);
+  transition: opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
+  pointer-events: none;
 }
 
 .nav__mobile.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .35s ease, transform .35s ease, visibility 0s linear 0s;
+  pointer-events: auto;
+}
+
+/* Seznam linků */
+.nav__mobile ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+/* Stagger — každý link se vynoří po sobě */
+.nav__mobile.is-open ul li {
+  animation: menuLinkIn .45s cubic-bezier(.25,.46,.45,.94) both;
+}
+
+.nav__mobile.is-open ul li:nth-child(1) { animation-delay: .10s; }
+.nav__mobile.is-open ul li:nth-child(2) { animation-delay: .18s; }
+.nav__mobile.is-open ul li:nth-child(3) { animation-delay: .26s; }
+.nav__mobile.is-open ul li:nth-child(4) { animation-delay: .34s; }
+.nav__mobile.is-open ul li:nth-child(5) { animation-delay: .42s; }
+.nav__mobile.is-open ul li:nth-child(6) { animation-delay: .50s; }
+
+@keyframes menuLinkIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .nav__mobile .nav__link {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  letter-spacing: .03em;
+  color: var(--ink);
+  display: block;
+  padding: 14px 40px;
+  transition: color .25s;
 }
 
+.nav__mobile .nav__link:hover,
+.nav__mobile .nav__link--active {
+  color: var(--gold);
+}
+
+/* CTA tlačítko — odděleno jemnou zlatou čárou */
 .nav__mobile .nav__cta {
-  margin-top: 8px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.nav__mobile.is-open .nav__cta {
+  animation: menuLinkIn .45s ease .58s both;
 }
 
 
