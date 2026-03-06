@@ -200,7 +200,41 @@
 
 
 /* ============================================================
-   6. Smooth scroll pro anchor linky
+   6. Lightbox — mapa (kontakt.html)
+   ============================================================ */
+
+(function initLightbox() {
+  const trigger = document.querySelector('.map-lightbox-trigger');
+  const lightbox = document.getElementById('map-lightbox');
+  if (!trigger || !lightbox) return;
+
+  const closeBtn = lightbox.querySelector('.lightbox__close');
+  const backdrop = lightbox.querySelector('.lightbox__backdrop');
+
+  function openLightbox() {
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+    trigger.focus();
+  }
+
+  trigger.addEventListener('click', openLightbox);
+  closeBtn.addEventListener('click', closeLightbox);
+  backdrop.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+
+
+/* ============================================================
+   7. Smooth scroll pro anchor linky
    ============================================================ */
 
 (function initSmoothScroll() {

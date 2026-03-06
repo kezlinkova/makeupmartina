@@ -68,7 +68,7 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero hero--inner" id="hero">
+  <section class="hero hero--inner hero--inner--photo" id="hero">
     <div class="hero__inner">
       <div class="hero__content">
         <p class="hero__eyebrow">Kosmetika &amp; Obočí</p>
@@ -80,6 +80,9 @@
         <div class="hero__actions">
           <a href="tel:+420736241404" class="btn btn--primary">Rezervovat termín</a>
         </div>
+      </div>
+      <div class="hero__image">
+        <img src="assets/img/kosmetika/pristroj.webp" alt="Profesionální kosmetické ošetření pleti" loading="eager">
       </div>
     </div>
   </section>
@@ -166,46 +169,28 @@
     </div>
   </section>
 
-  <!-- JEDNOTLIVÉ ÚKONY -->
-  <section class="section section--cream" id="jednotlive">
+  <!-- CHEMICKÝ PEELING -->
+  <section class="section section--cream" id="peeling">
     <div class="section__inner">
       <div class="section__header">
-        <p class="section-label reveal">Jednotlivé úkony</p>
-        <h2 class="section__title reveal reveal-delay-1">Ceny à la carte</h2>
-      </div>
-      <div style="max-width:760px; margin:0 auto;">
-        <div class="price-list reveal">
-          <div class="price-list__item">
-            <span class="price-list__name">Úprava obočí (vytvarování, barvení)</span>
-            <span class="price-list__price">550 Kč</span>
-          </div>
-          <div class="price-list__item">
-            <span class="price-list__name">Barvení řas</span>
-            <span class="price-list__price">250 Kč</span>
-          </div>
-          <div class="price-list__item">
-            <span class="price-list__name">Úprava obočí, barvení obočí a řas</span>
-            <span class="price-list__price">700 Kč</span>
-          </div>
-          <div class="price-list__item">
-            <span class="price-list__name">Lymfatická masáž obličeje, krku a dekoltu</span>
-            <span class="price-list__price">550 Kč</span>
-          </div>
-          <div class="price-list__item">
-            <span class="price-list__name">Liftingová masáž</span>
-            <span class="price-list__price">1 000 Kč</span>
-          </div>
-        </div>
-        <p class="price-note reveal reveal-delay-1">
-          Cena se může lišit v závislosti na použitém materiálu a délce ošetření.<br>
-          Platba kartou, QR kódem nebo hotově.
+        <p class="section-label reveal">Chemický peeling</p>
+        <h2 class="section__title reveal reveal-delay-1">Dermoaroma — hloubková regenerace pleti</h2>
+        <p class="section__perex reveal reveal-delay-2">
+          Patentovaná technologie inkapsulace kyselin pro omlazení, redukci vrásek
+          a sjednocení tónu pleti. Lze podstoupit po celý rok.
         </p>
+      </div>
+      <div class="reveal reveal-delay-3" style="text-align:center; margin-bottom:16px;">
+        <p style="font-size:1.25rem; font-weight:500; color:var(--gold); letter-spacing:0.02em;">1 500 Kč / 30 min</p>
+      </div>
+      <div class="section__more reveal" style="text-align:center; margin-top:24px;">
+        <a href="chemicky-peeling.html" class="btn btn--outline">Více o chemickém peelingu</a>
       </div>
     </div>
   </section>
 
   <!-- OBOČÍ -->
-  <section class="section section--cream-dark" id="oboci">
+  <section class="section section--cream-light" id="oboci">
     <div class="section__inner">
       <div class="section__header">
         <p class="section-label reveal">Obočí</p>
@@ -261,6 +246,55 @@
         </div>
 
       </div>
+      <div class="section__more reveal" style="text-align:center; margin-top:40px;">
+        <a href="oboci.html" class="btn btn--outline">Více o technikách obočí</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JEDNOTLIVÉ ÚKONY -->
+  <section class="section section--cream" id="jednotlive">
+    <div class="section__inner">
+      <div class="section__header">
+        <p class="section-label reveal">Jednotlivé úkony</p>
+        <h2 class="section__title reveal reveal-delay-1">Samostatné ošetření</h2>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:start;">
+        <div style="flex:1; min-width:280px;">
+          <p class="section-label reveal" style="text-align:left; margin-bottom:16px;">Obočí &amp; řasy</p>
+          <div class="price-list reveal">
+            <div class="price-list__item">
+              <span class="price-list__name">Úprava obočí (vytvarování, barvení)</span>
+              <span class="price-list__price">550 Kč</span>
+            </div>
+            <div class="price-list__item">
+              <span class="price-list__name">Barvení řas</span>
+              <span class="price-list__price">250 Kč</span>
+            </div>
+            <div class="price-list__item">
+              <span class="price-list__name">Úprava obočí, barvení obočí a řas</span>
+              <span class="price-list__price">700 Kč</span>
+            </div>
+          </div>
+        </div>
+        <div style="flex:1; min-width:280px;">
+          <p class="section-label reveal" style="text-align:left; margin-bottom:16px;">Masáže</p>
+          <div class="price-list reveal reveal-delay-1">
+            <div class="price-list__item">
+              <span class="price-list__name">Lymfatická masáž obličeje, krku a dekoltu</span>
+              <span class="price-list__price">550 Kč</span>
+            </div>
+            <div class="price-list__item">
+              <span class="price-list__name">Liftingová masáž</span>
+              <span class="price-list__price">1 000 Kč</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="price-note reveal reveal-delay-2" style="margin-top:24px;">
+        Cena se může lišit v závislosti na použitém materiálu a délce ošetření.<br>
+        Platba kartou, QR kódem nebo hotově.
+      </p>
     </div>
   </section>
 
@@ -353,10 +387,17 @@
     </div>
     <div class="footer__nav">
       <p class="footer__nav-title">Služby</p>
-      <nav class="footer__nav-links" aria-label="Patička navigace">
+      <nav class="footer__nav-links" aria-label="Patička navigace — Služby">
         <a href="makeup-hair.html">Makeup &amp; Hair</a>
         <a href="kosmetika.html">Kosmetika &amp; Obočí</a>
+        <a href="oboci.html">Techniky obočí</a>
+        <a href="chemicky-peeling.html">Chemický peeling</a>
         <a href="kurz-liceni.html">Kurz líčení</a>
+      </nav>
+    </div>
+    <div class="footer__nav">
+      <p class="footer__nav-title">Informace</p>
+      <nav class="footer__nav-links" aria-label="Patička navigace — Informace">
         <a href="portfolio.html">Portfolio</a>
         <a href="produkty.html">Produkty</a>
         <a href="o-mne.html">O mně</a>

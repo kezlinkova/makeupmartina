@@ -57,4 +57,18 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://makeupmartina.cz/oboci.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://makeupmartina.cz/chemicky-peeling.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>

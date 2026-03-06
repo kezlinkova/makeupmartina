@@ -371,6 +371,21 @@ h1, h2, h3, h4 {
   justify-content: center;
 }
 
+/* Hero s fotografií — 2sloupce (makeup-hair, kosmetika, kurz-liceni) */
+.hero--inner--photo .hero__inner {
+  grid-template-columns: 1fr 1fr;
+  max-width: var(--max-width);
+  text-align: left;
+  gap: 60px;
+}
+
+.hero--inner--photo .hero__perex {
+  margin: 0;
+}
+
+.hero--inner--photo .hero__actions {
+  justify-content: flex-start;
+}
 
 
 /* ============================================================
@@ -595,9 +610,9 @@ h1, h2, h3, h4 {
   background: var(--gold);
   color: var(--white);
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: .1em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   padding: 5px 16px;
   border-radius: var(--radius-full);
@@ -866,9 +881,9 @@ h1, h2, h3, h4 {
 
 .portfolio-filter__btn {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: .12em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--ink-soft);
   padding: 9px 20px;
@@ -1077,12 +1092,85 @@ h1, h2, h3, h4 {
   display: block;
 }
 
-.map-wrapper a img {
+.map-lightbox-trigger {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.map-lightbox-trigger img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: opacity .25s;
 }
 
-.map-wrapper a:hover img {
+.map-lightbox-trigger:hover img {
   opacity: .88;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .85);
+  cursor: pointer;
+}
+
+.lightbox__img {
+  position: relative;
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+  z-index: 1;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .4);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  background: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255, 255, 255, .25);
+  color: var(--white);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+
+.lightbox__close:hover {
+  background: rgba(255, 255, 255, .3);
+}
+
+.lightbox__close svg {
+  width: 18px;
+  height: 18px;
 }
 
 
@@ -1100,7 +1188,7 @@ h1, h2, h3, h4 {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
@@ -1354,6 +1442,22 @@ h1, h2, h3, h4 {
   .hero__image {
     max-width: 480px;
     margin: 0 auto;
+  }
+
+  /* Hero s fotografií — přepnutí na 1 sloupec */
+  .hero--inner--photo .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    max-width: 760px;
+  }
+
+  .hero--inner--photo .hero__perex {
+    margin: 0 auto;
+  }
+
+  .hero--inner--photo .hero__actions {
+    justify-content: center;
   }
 
   /* Gridy 3 → 2 sloupce */
@@ -1650,10 +1754,15 @@ h1, h2, h3, h4 {
     padding-bottom: 16px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .reviews-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .review-card {
-    min-width: 280px;
+    min-width: calc(100% - 40px);
     scroll-snap-align: start;
     flex-shrink: 0;
   }

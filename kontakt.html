@@ -138,12 +138,11 @@
           </div>
         </div>
         <div class="map-wrapper reveal reveal-delay-1">
-          <a href="https://maps.app.goo.gl/oFgY2GvgbSMM2m4w6" target="_blank" rel="noopener noreferrer" aria-label="Otevřít polohu salonu v Google Maps" style="display:block; height:100%;">
+          <button class="map-lightbox-trigger" aria-label="Zvětšit mapu" aria-controls="map-lightbox">
             <img src="assets/img/mapa.jpg"
                  alt="Poloha salonu Makeup Martina — Tyršova 324, Slavkov u Brna"
-                 loading="lazy"
-                 style="width:100%; height:100%; object-fit:cover; display:block;">
-          </a>
+                 loading="lazy">
+          </button>
         </div>
       </div>
     </div>
@@ -226,6 +225,18 @@
 
 </main>
 
+<!-- LIGHTBOX — mapa -->
+<div class="lightbox" id="map-lightbox" role="dialog" aria-modal="true" aria-label="Mapa salonu" hidden>
+  <div class="lightbox__backdrop"></div>
+  <button class="lightbox__close" aria-label="Zavřít">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <img class="lightbox__img" src="assets/img/mapa.jpg" alt="Poloha salonu Makeup Martina — Tyršova 324, Slavkov u Brna">
+</div>
+
 <footer class="footer" role="contentinfo">
   <div class="footer__inner">
     <div class="footer__brand">
@@ -239,10 +250,17 @@
     </div>
     <div class="footer__nav">
       <p class="footer__nav-title">Služby</p>
-      <nav class="footer__nav-links" aria-label="Patička navigace">
+      <nav class="footer__nav-links" aria-label="Patička navigace — Služby">
         <a href="makeup-hair.html">Makeup &amp; Hair</a>
         <a href="kosmetika.html">Kosmetika &amp; Obočí</a>
+        <a href="oboci.html">Techniky obočí</a>
+        <a href="chemicky-peeling.html">Chemický peeling</a>
         <a href="kurz-liceni.html">Kurz líčení</a>
+      </nav>
+    </div>
+    <div class="footer__nav">
+      <p class="footer__nav-title">Informace</p>
+      <nav class="footer__nav-links" aria-label="Patička navigace — Informace">
         <a href="portfolio.html">Portfolio</a>
         <a href="produkty.html">Produkty</a>
         <a href="o-mne.html">O mně</a>
