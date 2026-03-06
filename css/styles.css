@@ -1746,25 +1746,9 @@ h1, h2, h3, h4 {
     justify-content: center;
   }
 
-  /* Reviews — horizontální scroll */
+  /* Reviews — 1 sloupec pod sebou */
   .reviews-grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 16px;
-    padding-bottom: 16px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .reviews-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .review-card {
-    min-width: calc(100% - 40px);
-    scroll-snap-align: start;
-    flex-shrink: 0;
+    grid-template-columns: 1fr;
   }
 
   /* Produkty — 2-sloupcový grid */
