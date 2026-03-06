@@ -1541,6 +1541,23 @@ h1, h2, h3, h4 {
 }
 
 
+/* === SALON GALLERY === */
+.salon-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.salon-gallery__item img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+
 /* ============================================================
    20. Responsive — mobil (max-width: 640px)
    ============================================================ */
@@ -1645,5 +1662,10 @@ h1, h2, h3, h4 {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+
+  /* Salon gallery — mobil: 1 sloupec */
+  .salon-gallery {
+    grid-template-columns: 1fr;
   }
 }
