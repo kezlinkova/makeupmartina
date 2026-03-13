@@ -213,34 +213,84 @@
         <p class="section-label reveal">Ceník</p>
         <h2 class="section__title reveal reveal-delay-1">Investice do sebe sama</h2>
       </div>
-      <div style="max-width:760px; margin:0 auto;">
-        <div class="price-list reveal">
-          <div class="price-list__item">
-            <span class="price-list__name">Individuální péče od A–Z (cca 2,5 hod)</span>
-            <span class="price-list__price">2 200 Kč</span>
+      <div class="pricing-grid pricing-grid--2">
+
+        <!-- Individuální péče -->
+        <div class="price-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4l3 3"/>
+            </svg>
           </div>
-          <div class="price-list__item">
-            <span class="price-list__name">Skupinové lekce (cca 3 hod)</span>
-            <span class="price-list__price">1 300 Kč</span>
-          </div>
-          <div class="price-list__item">
-            <span class="price-list__name">Kamarádka do kabelky</span>
-            <span class="price-list__price">500 Kč/hod</span>
-          </div>
-          <div class="price-list__item">
-            <span class="price-list__name">Kamarádka do kabelky + individuální péče</span>
-            <span class="price-list__price">od 2 500 Kč</span>
-          </div>
-          <div class="price-list__item">
-            <span class="price-list__name">Dojezd</span>
-            <span class="price-list__price">10 Kč/km</span>
+          <p class="price-card__title">Individuální péče od A–Z</p>
+          <p class="price-card__duration">cca 2,5 hodiny</p>
+          <p class="price-card__price">2 500 Kč</p>
+          <p class="price-card__desc">Naučím vás od základu až po konečnou úpravu — jak o sebe pečovat, které odstíny se k vám hodí, který druh makeupu, co se k čemu používá, kam se nanáší a v jakém pořadí. Poradím, kde a co nakoupit a do čeho se vyplatí investovat.</p>
+          <div class="price-card__cta">
+            <a href="tel:+420736241404" class="btn btn--outline">Přihlásit se</a>
           </div>
         </div>
-        <p class="price-note reveal reveal-delay-1">
-          Cena nezahrnuje dopravu na nákupy ani nakupené produkty.<br>
-          Platba kartou, QR kódem nebo hotově.
-        </p>
+
+        <!-- Skupinové lekce -->
+        <div class="price-card reveal reveal-delay-1">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="7" r="3"/>
+              <circle cx="17" cy="7" r="3"/>
+              <path d="M3 21v-2a5 5 0 0 1 5-5h4"/>
+              <path d="M16 21v-2a4 4 0 0 0-1-2.7"/>
+              <path d="M21 21v-2a4 4 0 0 0-3-3.87"/>
+            </svg>
+          </div>
+          <p class="price-card__title">Skupinové lekce</p>
+          <p class="price-card__duration">cca 3 hodiny</p>
+          <p class="price-card__price">1 300 Kč <span style="font-size:1.1rem;">/ os.</span></p>
+          <p class="price-card__desc">Ideální pro kamarádky nebo kolegyně — líčení se naučíte v příjemné skupince. Termíny skupinových lekcí domluvíme přímo.</p>
+          <div class="price-card__cta">
+            <a href="tel:+420736241404" class="btn btn--outline">Zjistit termín</a>
+          </div>
+        </div>
+
+        <!-- Kamarádka do kabelky -->
+        <div class="price-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+          <p class="price-card__title">Kamarádka do kabelky</p>
+          <p class="price-card__duration">cena bez dopravy</p>
+          <p class="price-card__price">500 Kč <span style="font-size:1.1rem;">/ hod</span></p>
+          <p class="price-card__desc">Jdete do obchodu a nevíte, co a proč si vybrat? Ukáži vám, jak se v regálech orientovat, jaké produkty potřebujete, jak se používají a jaké odstíny vám sednou. Nakupujeme spolu — žádný odhad naslepo.</p>
+          <div class="price-card__cta">
+            <a href="tel:+420736241404" class="btn btn--outline">Domluvit termín</a>
+          </div>
+        </div>
+
+        <!-- Combo -->
+        <div class="price-card reveal reveal-delay-1">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <p class="price-card__title">Kamarádka do kabelky + individuální péče</p>
+          <p class="price-card__duration">kompletní služba</p>
+          <p class="price-card__price">od 3 000 Kč</p>
+          <p class="price-card__desc">Předchozí dvě služby dohromady. Zajedeme spolu do obchodu, nakoupíme vše potřebné a přesuneme se do salonu nebo k vám domů — ukáži vám, jak s čím pracovat, k čemu je který štětec a jak o něj pečovat.</p>
+          <div class="price-card__cta">
+            <a href="tel:+420736241404" class="btn btn--outline">Domluvit termín</a>
+          </div>
+        </div>
+
       </div>
+      <p class="price-note reveal" style="text-align:center; margin-top:32px;">
+        Dojezd 15 Kč/km · Cena nezahrnuje dopravu na nákupy ani nakoupené produkty.<br>
+        Platba QR kódem, hotově. Na salonu je možná i platba kartou.
+      </p>
     </div>
   </section>
 
