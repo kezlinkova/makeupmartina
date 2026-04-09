@@ -176,7 +176,8 @@
 
       // Filtrovat položky
       portfolioItems.forEach(function (item) {
-        if (category === 'all' || item.getAttribute('data-category') === category) {
+        const cats = item.getAttribute('data-category').split(' ');
+        if (category === 'all' || cats.includes(category)) {
           item.style.display = '';
           // Animovat znovuzobrazení
           item.style.opacity = '0';
@@ -270,5 +271,79 @@
       document.body.style.overflow = '';
       if (hamburger) hamburger.classList.remove('is-open');
     }
+  });
+})();
+
+
+/* ============================================================
+   8. Lightbox — galerie fotek (portfolio.html, makeup-hair.html)
+   ============================================================ */
+
+(function initGalleryLightbox() {
+  const clickableImgs = document.querySelectorAll('.portfolio-item img, .gallery-placeholder__item img');
+  if (!clickableImgs.length) return;
+
+  // Dynamicky vytvoříme lightbox element
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.hidden = true;
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.innerHTML =
+    '<div class="lightbox__backdrop"></div>' +
+    '<img class="lightbox__img" src="" alt="">' +
+    '<button class="lightbox__close" aria-label="Zavřít">' +
+      '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2">' +
+        '<line x1="1" y1="1" x2="17" y2="17"/><line x1="17" y1="1" x2="1" y2="17"/>' +
+      '</svg>' +
+    '</button>';
+  document.body.appendChild(lb);
+
+  const lbImg  = lb.querySelector('.lightbox__img');
+  const closeBtn = lb.querySelector('.lightbox__close');
+  const backdrop = lb.querySelector('.lightbox__backdrop');
+  let currentIndex = 0;
+  let lastFocused = null;
+
+  // Vrátí aktuálně viditelné obrázky (respektuje filtr portfolia)
+  function visibleImgs() {
+    return Array.from(clickableImgs).filter(function (img) {
+      const parent = img.closest('.portfolio-item, .gallery-placeholder__item');
+      return !parent || parent.style.display !== 'none';
+    });
+  }
+
+  function open(index) {
+    const imgs = visibleImgs();
+    currentIndex = Math.max(0, Math.min(index, imgs.length - 1));
+    lbImg.src  = imgs[currentIndex].src;
+    lbImg.alt  = imgs[currentIndex].alt;
+    lb.hidden  = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function close() {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  clickableImgs.forEach(function (img) {
+    img.addEventListener('click', function () {
+      lastFocused = img;
+      const imgs = visibleImgs();
+      open(imgs.indexOf(img));
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+
+  lb.addEventListener('keydown', function (e) {
+    const imgs = visibleImgs();
+    if (e.key === 'Escape')      { close(); }
+    if (e.key === 'ArrowRight')  { open((currentIndex + 1) % imgs.length); }
+    if (e.key === 'ArrowLeft')   { open((currentIndex - 1 + imgs.length) % imgs.length); }
   });
 })();

@@ -19,6 +19,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  font-size: 112.5%; /* 18px base */
 }
 
 body {
@@ -1197,7 +1198,7 @@ h1, h2, h3, h4 {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 500;
+  z-index: 1100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1355,11 +1356,20 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .footer__copy {
   color: rgba(255, 255, 255, .3);
+}
+
+.footer__bottom a {
+  color: rgba(255, 255, 255, .3);
+  transition: color .25s;
+}
+
+.footer__bottom a:hover {
+  color: var(--gold);
 }
 
 
@@ -1838,8 +1848,17 @@ h1, h2, h3, h4 {
     gap: 16px;
   }
 
-  /* Salon gallery — mobil: 1 sloupec */
+  /* Salon gallery — mobil: 1 sloupec, kratší aspect ratio */
   .salon-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .salon-gallery__item img {
+    aspect-ratio: 4/3;
+  }
+
+  /* Produkty — 1 sloupec na malých displejích */
+  .products-grid {
     grid-template-columns: 1fr;
   }
 }

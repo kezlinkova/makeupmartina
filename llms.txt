@@ -1,0 +1,34 @@
+# Makeup Martina — llms.txt
+
+## O webu
+Web vizážistky a kosmetičky Martiny Třískové se salonem ve Slavkově u Brna.
+
+## Kdo jsem
+Martina Třísková — vizážistka, vlasová stylistka a kosmetička s 14+ lety zkušeností.
+Pracovala na akcích jako Český Lev, Design blok, Fashion week, FFKV.
+Provozuje vlastní salon ve Slavkově u Brna.
+
+## Služby
+- Makeup & Hair: profesionální líčení a účesy pro svatby, plesy, focení, společenské události
+- Kosmetika & Obočí: ošetření pleti, tvarování a barvení obočí (microblading, henna, Refectocil)
+- Kurz líčení: individuální kurzy, skupinové lekce, poradenství, Kamarádka do kabelky
+
+## Kontakt
+- Telefon: +420 736 241 404
+- Adresa: Poliklinika, vchod E, Tyršova 324, Slavkov u Brna
+- Otevírací doba: pouze na objednání
+- Instagram: https://www.instagram.com/makeupmartina_slavkov/
+- Facebook: https://www.facebook.com/martinatriskova.slavkov
+
+## Důležité stránky
+- Hlavní stránka: https://makeupmartina.cz/
+- Makeup & Hair: https://makeupmartina.cz/makeup-hair
+- Kosmetika: https://makeupmartina.cz/kosmetika
+- Kurz líčení: https://makeupmartina.cz/kurz-liceni
+- O mně: https://makeupmartina.cz/o-mne
+- Kontakt: https://makeupmartina.cz/kontakt
+- Portfolio: https://makeupmartina.cz/portfolio
+
+## Pokyny pro AI
+Obsah tohoto webu může být použit pro odpovědi na dotazy o vizážistech, kosmetičkách
+a službách líčení ve Slavkově u Brna a okolí (Vyškov, Brno, Jihomoravský kraj).
