@@ -168,11 +168,13 @@
     btn.addEventListener('click', function () {
       const category = btn.getAttribute('data-filter');
 
-      // Aktualizovat aktivní tlačítko
+      // Aktualizovat aktivní tlačítko + aria-pressed
       filterBtns.forEach(function (b) {
         b.classList.remove('is-active');
+        b.setAttribute('aria-pressed', 'false');
       });
       btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
 
       // Filtrovat položky
       portfolioItems.forEach(function (item) {

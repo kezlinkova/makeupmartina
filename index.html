@@ -60,6 +60,7 @@
   <link rel="canonical" href="https://makeupmartina.cz/">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Přeskočit na obsah</a>
 
 <nav class="nav" role="navigation" aria-label="Hlavní navigace">
   <div class="nav__inner">
@@ -97,7 +98,7 @@
   </div>
 </div>
 
-<main>
+<main id="main-content">
 
   <!-- HERO -->
   <section class="hero" id="hero">
@@ -124,7 +125,7 @@
   <section class="section section--cream-light" id="sluzby">
     <div class="section__inner">
       <div class="section__header">
-        <p class="section-label reveal">Co pro vás dělám</p>
+        <p class="section-label reveal" aria-hidden="true">Co pro vás dělám</p>
         <h2 class="section__title reveal reveal-delay-1">Tři oblasti, jedna Martina</h2>
       </div>
       <div class="services-grid">
@@ -189,7 +190,7 @@
   <section class="section section--cream" id="portfolio">
     <div class="section__inner">
       <div class="section__header">
-        <p class="section-label reveal">Portfolio</p>
+        <p class="section-label reveal" aria-hidden="true">Portfolio</p>
         <h2 class="section__title reveal reveal-delay-1">Výsledky mluví za vše</h2>
         <p class="section__perex reveal reveal-delay-2">Každá klientka je jedinečná. Podívejte se na výsledky mé práce.</p>
       </div>
@@ -224,7 +225,7 @@
     <div class="section__inner">
       <div class="contact-grid" style="align-items:center;">
         <div>
-          <p class="section-label reveal">O mně</p>
+          <p class="section-label reveal" aria-hidden="true">O mně</p>
           <h2 class="section__title reveal reveal-delay-1" style="text-align:left; margin-bottom:24px;">
             Od koníčku k vlastnímu salonu
           </h2>
@@ -250,11 +251,11 @@
   <section class="section section--cream-light" id="reference">
     <div class="section__inner">
       <div class="section__header">
-        <p class="section-label reveal">Co říkají klientky</p>
+        <p class="section-label reveal" aria-hidden="true">Co říkají klientky</p>
       </div>
       <div class="reviews-grid">
         <div class="review-card reveal">
-          <div class="review-card__stars">★★★★★</div>
+          <div class="review-card__stars" role="img" aria-label="Hodnocení 5 z 5 hvězdiček">★★★★★</div>
           <p class="review-card__text">
             Na kosmetiku jsem šla, protože jsem si nevěděla rady se suchou aknózní pletí.
             Slečna Martina mi nejen pleť ošetřila, ale velice příjemně mi obličej namasírovala,
@@ -264,7 +265,7 @@
           <p class="review-card__author">Klára Skulínková</p>
         </div>
         <div class="review-card reveal reveal-delay-1">
-          <div class="review-card__stars">★★★★★</div>
+          <div class="review-card__stars" role="img" aria-label="Hodnocení 5 z 5 hvězdiček">★★★★★</div>
           <p class="review-card__text">
             Hledala jsem kosmetičku, která bude šikovná, příjemná a používá kvalitní kosmetiku.
             Měla jsem velké štěstí, že jsem natrefila na Martinu — odvádí profesionální péči
@@ -273,7 +274,7 @@
           <p class="review-card__author">Lucie Uhlířová</p>
         </div>
         <div class="review-card reveal reveal-delay-2">
-          <div class="review-card__stars">★★★★★</div>
+          <div class="review-card__stars" role="img" aria-label="Hodnocení 5 z 5 hvězdiček">★★★★★</div>
           <p class="review-card__text">
             Každá návštěva je pro mě velmi příjemná a relaxační záležitost. Procedury jsou prováděny
             s maximální precizností a profesionalitou. Kosmetička má skvělý přístup, je velmi milá
@@ -294,7 +295,7 @@
   <!-- PRODUKTY TEASER -->
   <section class="section section--cream-dark" id="produkty-teaser">
     <div class="section__inner" style="text-align:center; max-width:640px; margin:0 auto;">
-      <p class="section-label reveal">Produkty</p>
+      <p class="section-label reveal" aria-hidden="true">Produkty</p>
       <h2 class="section__title reveal reveal-delay-1">Kosmetika, které věřím</h2>
       <p class="reveal reveal-delay-2" style="font-size:1rem; color:var(--ink-mid); line-height:1.8; margin-bottom:32px;">
         V salonu používám a prodávám pečlivě vybranou kosmetiku — irské mořské řasy Green Angel,
@@ -309,7 +310,7 @@
     <div class="section__inner">
       <div class="contact-grid" style="align-items:center; gap:48px;">
         <div>
-          <p class="section-label reveal">Dárkový poukaz</p>
+          <p class="section-label reveal" aria-hidden="true">Dárkový poukaz</p>
           <h2 class="section__title reveal reveal-delay-1" style="text-align:left; margin-bottom:20px;">
             Darujte zážitek, na který se nezapomíná
           </h2>
@@ -318,7 +319,7 @@
             potěší každou ženu. Zavolejte a domluvíme vše potřebné.
           </p>
           <a href="tel:+420736241404" class="btn btn--primary reveal reveal-delay-3">Zavolat a objednat</a>
-          <p class="reveal reveal-delay-3" style="font-size:0.8rem; color:var(--ink-soft); margin-top:16px;">Vydané dárkové poukazy jsou nevratné — peníze nezproplácím.</p>
+          <p class="reveal reveal-delay-3" style="font-size:0.8rem; color:var(--ink-mid); margin-top:16px;">Vydané dárkové poukazy jsou nevratné — peníze nezproplácím.</p>
         </div>
         <div class="reveal reveal-delay-1">
           <img src="assets/img/darkovy/1.jpg" alt="Dárkový poukaz — kosmetické ošetření pleti 120 min" loading="lazy"

@@ -34,10 +34,12 @@
   </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Přeskočit na obsah</a>
 
 <!-- ============================================================
      SNIPPET 1: NAVIGACE
      Kopírovat do každé stránky — těsně za <body>
+<a href="#main-content" class="skip-link">Přeskočit na obsah</a>
      Změnit .nav__link--active na příslušný odkaz
      ============================================================ -->
 
@@ -105,7 +107,7 @@
 <!-- Příklad hero sekce pro testování výšky nav -->
 <section style="height: 60vh; background: var(--cream); display:flex; align-items:center; justify-content:center;">
   <div style="text-align:center;">
-    <p class="section-label">Testovací obsah</p>
+    <p class="section-label" aria-hidden="true">Testovací obsah</p>
     <h1 style="font-family:var(--font-serif); font-size:3rem; font-weight:300; color:var(--ink);">Fáze 1 — základ projektu</h1>
     <p style="color:var(--ink-soft); margin-top:16px;">Nav a footer jsou připraveny ke kopírování.</p>
   </div>
@@ -113,7 +115,7 @@
 
 <section style="height: 100vh; background: var(--cream-dark); display:flex; align-items:center; justify-content:center;">
   <div style="text-align:center;">
-    <p class="section-label reveal">Scroll reveal test</p>
+    <p class="section-label reveal" aria-hidden="true">Scroll reveal test</p>
     <h2 class="reveal reveal-delay-1" style="font-family:var(--font-serif); font-size:2.5rem; font-weight:300; color:var(--ink);">Testuj animace scrollu</h2>
     <p class="reveal reveal-delay-2" style="color:var(--ink-soft); margin-top:16px; max-width:400px; margin-left:auto; margin-right:auto;">Přidej třídu .reveal na libovolný element a ověř fadeUp efekt při scrollování.</p>
     <div class="reveal reveal-delay-3" style="margin-top:24px;">
@@ -215,11 +217,12 @@ NÁVOD K POUŽITÍ — kopírování snippetů
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Přeskočit na obsah</a>
 
   [SEM VLOŽIT NAV SNIPPET]
   [SEM VLOŽIT NAV MOBILE SNIPPET]
 
-  <main>
+  <main id="main-content">
     [OBSAH STRÁNKY]
   </main>
 
