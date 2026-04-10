@@ -1,5 +1,15 @@
 ErrorDocument 404 /404.html
 
+# Přesměrování ze starého webu (301 permanent)
+Redirect 301 /vlaskovani/          /oboci
+Redirect 301 /cenik/               /
+Redirect 301 /oboci/               /oboci
+Redirect 301 /salon/               /o-mne
+Redirect 301 /kontakt/             /kontakt
+Redirect 301 /kosmeticke-osetreni/ /kosmetika
+Redirect 301 /o-mne/               /o-mne
+Redirect 301 /kamaradka-do-kabelky/ /kurz-liceni
+
 RewriteEngine On
 
 # Přesměrování .html → čistá URL (301)
