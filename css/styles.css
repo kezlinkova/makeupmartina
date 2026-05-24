@@ -49,6 +49,7 @@ body {
   background-color: var(--pink-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 img {
@@ -165,7 +166,7 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 20px;
 }
 
 /* Logo */
@@ -192,14 +193,14 @@ h1, h2, h3, h4 {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
   flex: 1;
   justify-content: center;
 }
 
 .nav__link {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 400;
   color: var(--ink-mid);
   transition: color .25s;
@@ -298,6 +299,7 @@ h1, h2, h3, h4 {
 .nav__mobile.is-open ul li:nth-child(4) { animation-delay: .34s; }
 .nav__mobile.is-open ul li:nth-child(5) { animation-delay: .42s; }
 .nav__mobile.is-open ul li:nth-child(6) { animation-delay: .50s; }
+.nav__mobile.is-open ul li:nth-child(7) { animation-delay: .58s; }
 
 @keyframes menuLinkIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -1771,6 +1773,32 @@ h1, h2, h3, h4 {
 
 
 /* ============================================================
+   19b. Responsive — nav při středních šířkách
+   ============================================================ */
+
+/* Zmenšení tlačítka Rezervovat při 7 položkách (960–1060px) */
+@media (max-width: 1060px) {
+  .nav__cta .btn {
+    padding: 10px 18px;
+    font-size: 0.75rem;
+    letter-spacing: .12em;
+  }
+}
+
+/* Hamburger — přepíná se dříve kvůli 7 položkám */
+@media (max-width: 960px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+}
+
+
+/* ============================================================
    20. Responsive — mobil (max-width: 640px)
    ============================================================ */
 
@@ -1781,7 +1809,7 @@ h1, h2, h3, h4 {
     --nav-height: 64px;
   }
 
-  /* Nav — hamburger */
+  /* Nav — hamburger (již zobrazeno od 960px) */
   .nav__links,
   .nav__cta {
     display: none;
@@ -1878,5 +1906,32 @@ h1, h2, h3, h4 {
   /* Produkty — 1 sloupec na malých displejích */
   .products-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Spolupráce — contact-grid: centrování obsahu na mobilu */
+  .contact-grid > div {
+    text-align: center;
+  }
+  .contact-grid .section__title {
+    text-align: center !important;
+  }
+  .contact-grid img:not([style*="aspect-ratio"]) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Tlačítka — sloupec na celou šířku (brání přetékání white-space:nowrap) */
+  .contact-grid > div > div {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-grid .btn {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.4;
+  }
+  .contact-grid img {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
