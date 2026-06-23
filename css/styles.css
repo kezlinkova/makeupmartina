@@ -426,11 +426,12 @@ h1, h2, h3, h4 {
   min-height: 50vh;
   padding-top: calc(var(--nav-height) + 40px);
   padding-bottom: 60px;
+  overflow: visible;
 }
 
 .hero--inner .hero__inner {
   grid-template-columns: 1fr;
-  max-width: 760px;
+  max-width: 920px;
   text-align: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -442,6 +443,7 @@ h1, h2, h3, h4 {
 
 .hero--inner .hero__perex {
   margin: 0 auto;
+  max-width: none;
 }
 
 .hero--inner .hero__actions {
@@ -657,9 +659,6 @@ h1, h2, h3, h4 {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.pricing-grid--4 {
-  grid-template-columns: repeat(4, 1fr);
-}
 
 .price-card {
   background: var(--white);
@@ -1575,8 +1574,7 @@ h1, h2, h3, h4 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .pricing-grid--2,
-  .pricing-grid--4 {
+  .pricing-grid--2 {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1755,6 +1753,97 @@ h1, h2, h3, h4 {
 }
 
 
+/* === INSIGHT BOX (vysvětlující blok v hero) === */
+.insight-box {
+  margin-top: 32px;
+  padding: 24px 28px;
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  text-align: left;
+}
+
+.insight-box__title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-dark);
+  margin-bottom: 10px;
+}
+
+.insight-box__text {
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.insight-box--full {
+  margin-top: 0;
+  margin-bottom: 36px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 28px 36px;
+}
+
+
+/* === FACT COUNTER (Skeyndor) === */
+.brand-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 32px 0 16px;
+}
+
+.brand-stats__item {
+  background: var(--white);
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.brand-stats__number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.brand-stats__label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.brand-stats__note {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Zvýrazněná karta (Loana) */
+.product-card--featured {
+  background: var(--gold-pale);
+  border-color: rgba(196, 163, 90, .35);
+}
+
+/* 2-sloupcový grid pro doplňky stravy */
+.products-grid--supplements {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
 /* === SALON GALLERY === */
 .salon-gallery {
   display: grid;
@@ -1797,6 +1886,13 @@ h1, h2, h3, h4 {
   }
 }
 
+/* Tablety (641px–800px) — brand-stats na 2 sloupce */
+@media (max-width: 800px) {
+  .brand-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 
 /* ============================================================
    20. Responsive — mobil (max-width: 640px)
@@ -1817,6 +1913,19 @@ h1, h2, h3, h4 {
 
   .nav__hamburger {
     display: flex;
+  }
+
+  /* Hero — inner stránky: přepnout na block layout, flex nemůže ořezávat obsah */
+  .hero--inner {
+    display: block;
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 24px);
+    padding-bottom: 40px;
+  }
+
+  .hero--inner .hero__inner {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   /* Hero */
@@ -1881,6 +1990,9 @@ h1, h2, h3, h4 {
 
   .hero__actions .btn {
     justify-content: center;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
   }
 
   /* Reviews — 1 sloupec pod sebou */
@@ -1888,13 +2000,13 @@ h1, h2, h3, h4 {
     grid-template-columns: 1fr;
   }
 
-  /* Produkty — 2-sloupcový grid */
+  /* Produkty — 1 sloupec */
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  /* Salon gallery — mobil: 1 sloupec, kratší aspect ratio */
+  /* Salon gallery — 1 sloupec, kratší aspect ratio */
   .salon-gallery {
     grid-template-columns: 1fr;
   }
@@ -1903,9 +2015,9 @@ h1, h2, h3, h4 {
     aspect-ratio: 4/3;
   }
 
-  /* Produkty — 1 sloupec na malých displejích */
-  .products-grid {
-    grid-template-columns: 1fr;
+  /* Insight box — menší padding na mobilu */
+  .insight-box--full {
+    padding: 20px 18px;
   }
 
   /* Spolupráce — contact-grid: centrování obsahu na mobilu */
@@ -1933,5 +2045,15 @@ h1, h2, h3, h4 {
   .contact-grid img {
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  /* Skeyndor fact counter — 2×2 na mobilu */
+  .brand-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Supplements grid — 1 sloupec na mobilu */
+  .products-grid--supplements {
+    grid-template-columns: 1fr;
   }
 }
