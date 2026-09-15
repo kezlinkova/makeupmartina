@@ -699,6 +699,21 @@ h1, h2, h3, h4 {
   white-space: nowrap;
 }
 
+/* Kategorie ošetření nad názvem (např. „Základní péče") */
+.price-card__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: -12px;
+}
+
+.price-card__desc strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
 .price-card__title {
   font-family: var(--font-serif);
   font-size: 1.3rem;
