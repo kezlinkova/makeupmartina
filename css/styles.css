@@ -590,6 +590,17 @@ h1, h2, h3, h4 {
   line-height: 1.8;
 }
 
+/* Krátké shrnutí pod názvem karty (kosmetika — výběr značky) */
+.service-card__lead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.6;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
 .service-card__price {
   font-family: var(--font-serif);
   font-size: 2.2rem;
@@ -634,6 +645,11 @@ h1, h2, h3, h4 {
 /* ============================================================
    8. Ceník karty (s .price-card--featured)
    ============================================================ */
+
+/* Karty stejné výšky — tlačítka zarovnaná dole */
+.services-grid--stretch {
+  align-items: stretch;
+}
 
 /* Pomocná varianta pro 2-sloupcový grid (4 karty v 2×2 layoutu) */
 .services-grid--2 {
@@ -700,7 +716,8 @@ h1, h2, h3, h4 {
 }
 
 /* Kategorie ošetření nad názvem (např. „Základní péče") */
-.price-card__label {
+.price-card__label,
+.service-card__label {
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: .18em;
@@ -709,7 +726,8 @@ h1, h2, h3, h4 {
   margin-bottom: -12px;
 }
 
-.price-card__desc strong {
+.price-card__desc strong,
+.service-card__desc strong {
   font-weight: 500;
   color: var(--ink);
 }
