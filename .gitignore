@@ -12,3 +12,9 @@ desktop.ini
 # Archivní fotky — nepotřebné pro nasazení
 assets/img-original/
 assets/img/IMG_*.webp
+# Výjimky — tyto fotky web používá, musí se nasadit
+!assets/img/IMG_3470.webp
+!assets/img/IMG_3558.webp
+!assets/img/IMG_3575.webp
+!assets/img/IMG_3587.webp
+!assets/img/IMG_3591.webp
