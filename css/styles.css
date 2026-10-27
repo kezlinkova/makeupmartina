@@ -1692,6 +1692,12 @@ h1, h2, h3, h4 {
   color: var(--gold);
 }
 
+/* Menší štítek s počtem odstínů (Palladio) */
+.product-card__brand--meta {
+  font-size: 0.75rem;
+  letter-spacing: .16em;
+}
+
 .product-card__name {
   font-family: var(--font-serif);
   font-style: italic;
@@ -1862,6 +1868,61 @@ h1, h2, h3, h4 {
   font-style: italic;
   line-height: 1.65;
   margin: 0;
+}
+
+/* Tlačítko „Zjistit více“ pod ukázkou značky (Palladio) */
+.brand-section__more {
+  margin: 32px 0 0;
+  text-align: center;
+}
+
+/* Produktový výřez na bílém pozadí — obrázek se neořezává */
+.product-card__image--cutout {
+  background: var(--white);
+  padding: 20px;
+}
+
+.product-card__image--cutout img {
+  object-fit: contain;
+}
+
+/* Rostlinné a vitamínové složky (Palladio) */
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.ingredients-grid__item {
+  background: var(--white);
+  padding: 22px 18px;
+  text-align: center;
+}
+
+.ingredients-grid__name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--gold);
+  line-height: 1.3;
+}
+
+.ingredients-grid__desc {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+  .ingredients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Zvýrazněná karta (Loana) */
