@@ -1825,6 +1825,12 @@ h1, h2, h3, h4 {
   padding: 28px 36px;
 }
 
+/* Box pod mřížkou produktů (Palladio — péče o rty) */
+.products-grid + .insight-box {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
 
 /* === FACT COUNTER (Skeyndor) === */
 .brand-stats {
