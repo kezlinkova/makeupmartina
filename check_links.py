@@ -2,7 +2,7 @@ import os, re, pathlib
 
 pages = ['index.html','makeup-hair.html','kosmetika.html','kurz-liceni.html',
          'portfolio.html','produkty.html','o-mne.html','kontakt.html','oboci.html',
-         'chemicky-peeling.html','404.html']
+         'chemicky-peeling.html','palladio.html','spoluprace.html','404.html']
 
 existing = set()
 for p in pathlib.Path('.').rglob('*'):
